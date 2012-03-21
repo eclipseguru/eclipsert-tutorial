@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="hello.service.component">
+   <implementation class="hello.service.GreetingServiceComponent"/>
+   <reference bind="setNodeEnvironment" cardinality="1..1" interface="org.eclipse.gyrex.cloud.environment.INodeEnvironment" name="INodeEnvironment" policy="static"/>
+   <property name="service.vendor" type="String" value="EclipseCon 2012 - EclipseRT Tutorial"/>
+   <property name="service.description" type="String" value="A GreetingService component which provides an OSGi service that stores greetings in the memory."/>
+   <service>
+      <provide interface="hello.service.GreetingService"/>
+   </service>service.GreetingServiceComponent"/>
+</scr:component>

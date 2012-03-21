@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?pde version="3.6"?>
+
+<target name="EclipseCon 2012 - EclipseRT Tutorial (all remote)" sequenceNumber="7">
+<locations>
+<location includeAllPlatforms="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
+<unit id="org.objectweb.asm" version="3.3.1.v201105211655"/>
+<unit id="org.objectweb.asm.source" version="3.3.1.v201105211655"/>
+<repository location="http://download.eclipse.org/tools/orbit/downloads/drops/S20120308061416/repository/"/>
+</location>
+<location includeAllPlatforms="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
+<unit id="javax.ws.rs" version="1.1.1.v20101004-1200"/>
+<unit id="javax.ws.rs.source" version="1.1.1.v20101004-1200"/>
+<repository location="http://download.eclipse.org/tools/orbit/downloads/drops/S20120308061416/repository/"/>
+</location>
+<location includeAllPlatforms="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.gyrex.features.sdk.feature.group" version="1.0.0.v20120121-2101-69B-F8nUZBL3mRug1Vgh5wfZdKOo"/>
+<repository location="http://download.eclipse.org/gyrex/1.0/integration/I-I20120321-201203211219/"/>
+</location>
+</locations>
+</target>

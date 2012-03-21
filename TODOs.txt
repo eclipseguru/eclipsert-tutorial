@@ -1,0 +1,44 @@
+Project TODOS:
+
+* hello.service 
+   - bundle with GreetingService and simple implementation (using a map)
+   - exports GreetingService using DS
+   - suitable for demoing start/stop (with SYSOUT in component)
+   
+* hello.jaxrs
+   - bundle with sample JAX-RS resource
+   - uses GreetingService (via injection)
+   - test behavior when hello.service is started/stopped
+   - should respond with 503 if service is not available
+   - provides application using "JaxRSApplicationProviderComponent" from gyrex.http.jersey bundle
+   - Optional: JSON view EclipseLink?
+   
+* gyrex.http.jersey
+   - provides JAX-RS integration; will be part of Gyrex 1.1
+   - need to provide ExceptionMapper for IllegalStateException -> 503
+   - need to integrate Jersey Injection with Context + OSGi services
+   - Optional: should integrate with EclipseLink for JAXB/JSON support (if dependency is available?)
+   
+* hello.service.persistence
+   - implementation of GreetingService which persists to MongoDB
+   
+* hello.job
+   - Bundle mit Job für verteiles Processing
+   
+* hello.feature
+   - grouping unit of deployment, i.e. groups all bundles together
+   - can be exported with PDE
+   
+DEMO / Ad-Hoc Cloud
+-------------------
+
+* kurze pause vorher
+* Windows als Server oder besser Linux?
+* Wichtig: p2 Installation funktioniert nicht aus der IDE heraus, als Standalone
+* Client to demo "how-to-connect"
+* Demo console administration using SSH connect
+* FOLIE: Cloud-Connet Prozess (Tagging?)
+* FOLIE: Workspace Location erklären und grobe Struktur
+* export
+* unterschied lokal (in lokale DB/ZK und dann gegen server)
+

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?pde version="3.6"?>
+
+<target name="EclipseCon 2012 - EclipseRT Tutorial (all local)" sequenceNumber="1">
+<locations>
+<location path="${project_loc:/targetplatform}/exported" type="Profile"/>
+<location path="${project_loc:/targetplatform}/jaxrs" type="Profile"/>
+</locations>
+</target>
