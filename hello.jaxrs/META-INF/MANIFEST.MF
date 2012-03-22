@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: JAX-RS Hello World
+Bundle-Name: Hello World JAX-RS Bundle
 Bundle-SymbolicName: hello.jaxrs
 Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: EclipseCon 2012 - EclipseRT Tutorial
