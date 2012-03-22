@@ -44,6 +44,51 @@ public class GreetingServiceImpl implements GreetingService {
 			this.submittedBy = submittedBy;
 		}
 
+		/**
+		 * Returns the created.
+		 * 
+		 * @return the created
+		 */
+		public long getCreated() {
+			return created;
+		}
+
+		/**
+		 * Returns the processedBy.
+		 * 
+		 * @return the processedBy
+		 */
+		public String getProcessedBy() {
+			return processedBy;
+		}
+
+		/**
+		 * Returns the processedOn.
+		 * 
+		 * @return the processedOn
+		 */
+		public long getProcessedOn() {
+			return processedOn;
+		}
+
+		/**
+		 * Returns the submittedBy.
+		 * 
+		 * @return the submittedBy
+		 */
+		public String getSubmittedBy() {
+			return submittedBy;
+		}
+
+		/**
+		 * Returns the text.
+		 * 
+		 * @return the text
+		 */
+		public String getText() {
+			return text;
+		}
+
 		public void process(final long processedOn, final String processedBy) {
 			this.processedOn = processedOn;
 			this.processedBy = processedBy;
