@@ -128,10 +128,10 @@ public class GreetingsResource {
 			greetings = getGreetingService().getGreetings();
 		} catch (final IllegalStateException e) {
 			// no service is available; lets report that properly
-			return Response.status(Status.SERVICE_UNAVAILABLE).entity(e.getMessage()).build();
+			return Response.status(Status.SERVICE_UNAVAILABLE).type(MediaType.TEXT_PLAIN_TYPE).entity(e.getMessage()).build();
 		} catch (final Exception e) {
 			// this looks like an issue deeper in some underlying code; we should log this properly
-			return Response.serverError().entity(ExceptionUtils.getRootCauseMessage(e)).build();
+			return Response.serverError().type(MediaType.TEXT_PLAIN_TYPE).entity(ExceptionUtils.getFullStackTrace(e)).build();
 		}
 
 		// render HTML
