@@ -10,3 +10,5 @@ Import-Package: org.apache.commons.lang;version="[2.4.0,3.0.0)",
  org.eclipse.gyrex.cloud.environment;version="[1.0.0,2.0.0)";resolution:=optional,
  org.slf4j;version="[1.6.0,2.0.0)"
 Service-Component: OSGI-INF/greeting-service.xml
+Bundle-ActivationPolicy: lazy
+Export-Package: hello.service;version="1.0.0"
