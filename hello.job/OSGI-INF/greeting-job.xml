@@ -4,5 +4,5 @@
    <service>
       <provide interface="org.eclipse.gyrex.jobs.provider.JobProvider"/>
    </service>
-   <reference bind="setEnvironment" cardinality="1..1" interface="org.eclipse.gyrex.cloud.environment.INodeEnvironment" name="INodeEnvironment" policy="static"/>
+   <reference bind="setGreetingService" cardinality="1..1" interface="hello.service.GreetingService" name="GreetingService" policy="static"/>
 </scr:component>

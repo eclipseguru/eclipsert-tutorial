@@ -57,6 +57,10 @@ import org.slf4j.LoggerFactory;
 
 /**
  * A sample Eclipse {@link Job} which processes greetings.
+ * <p>
+ * Eclipse Jobs are executed in the background and allow to perform batch like
+ * processing of data.
+ * </p>
  */
 public class ProcessGreetingsJob extends Job {
 
