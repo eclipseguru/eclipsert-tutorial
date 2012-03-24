@@ -1,5 +1,7 @@
 package hello.jaxrs;
 
+import java.util.Date;
+
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -15,7 +17,7 @@ public class HelloResource {
 	@GET
 	@Produces(MediaType.TEXT_PLAIN)
 	public String sayHello() {
-		return sayHello("there");
+		return sayHello("there. It's now " + new Date());
 	}
 
 	@GET
