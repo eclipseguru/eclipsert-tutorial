@@ -16,7 +16,6 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
@@ -174,13 +173,12 @@ public class GreetingServiceImpl implements GreetingService {
 	}
 
 	protected Greeting nextUnprocessed() {
-		final Iterator<Greeting> i = unprocessed.iterator();
-		if (i.hasNext()) {
-			final Greeting next = i.next();
-			i.remove();
-			return next;
+		try {
+			return unprocessed.remove(0);
+		} catch (final IndexOutOfBoundsException e) {
+			// empty
+			return null;
 		}
-		return null;
 	}
 
 	@Override
