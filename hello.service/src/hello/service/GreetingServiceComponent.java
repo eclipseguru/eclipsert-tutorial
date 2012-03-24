@@ -93,7 +93,7 @@ public class GreetingServiceComponent implements GreetingService {
 	/**
 	 * Sets the node environment.
 	 * <p>
-	 * The node environment will be used to read the node id. The node ide
+	 * The node environment will be used to read the node id. The node id
 	 * uniquely identifies the node the system is running on. It is a
 	 * <em>required</em> dependency as specified by <strong>
 	 * <code>cardinality="1..1"</code> </strong> in the OSGi component
