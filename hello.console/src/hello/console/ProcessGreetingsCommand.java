@@ -98,6 +98,16 @@ public class ProcessGreetingsCommand extends Command {
 	 * @return the context
 	 */
 	private IRuntimeContext getRuntimeContext(final IPath contextPath) {
+		/*
+		 * Injecting OSGi services into Gyrex commands is not supported
+		 * right now. It should be possible, though. Hey that's an area
+		 * for contributing to Gyrex. :)
+		 *
+		 * For demonstration purposes we'll use the brutal manual way of
+		 * working with OSGi services. Look below what code has to be
+		 * written with DS is not an option.
+		 */
+
 		// 1: get bundle context
 		final BundleContext context = getBundleContext();
 
