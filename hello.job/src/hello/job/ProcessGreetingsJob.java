@@ -10,7 +10,6 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
 
 import org.apache.commons.lang.exception.ExceptionUtils;
-import org.apache.commons.lang.math.RandomUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -50,12 +49,9 @@ public class ProcessGreetingsJob extends Job {
 	@Override
 	protected IStatus run(final IProgressMonitor monitor) {
 		try {
-			LOG.info("Processing greetings...");
+			LOG.info("Job {} started.", getJobContext().getJobId());
 			getGreetingService().processGreetings();
-			for (int i = 0; (i < 30) && !monitor.isCanceled(); i++) {
-				LOG.info("Job {} working...", getJobContext().getJobId());
-				Thread.sleep(100 + RandomUtils.nextInt(400));
-			}
+			LOG.info("Job {} finished.", getJobContext().getJobId());
 			return Status.OK_STATUS;
 		} catch (final IllegalStateException e) {
 			LOG.error("Unable to process greetings. {}", e.getMessage(), e);
