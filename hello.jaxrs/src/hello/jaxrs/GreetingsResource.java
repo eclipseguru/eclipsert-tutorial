@@ -6,6 +6,7 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.Collection;
 
+import javax.inject.Inject;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -28,8 +29,13 @@ import org.apache.commons.lang.exception.ExceptionUtils;
 @Path("/greetings")
 public class GreetingsResource {
 
+	// inject OSGi service using JAX-RS @Context
 	@Context
 	private GreetingService greetingService;
+
+	// inject OSGi service using JSR 330 @Inject
+	@Inject
+	private GreetingService greetingService2;
 
 	@Context
 	private UriInfo uriInfo;
@@ -57,6 +63,10 @@ public class GreetingsResource {
 
 	public GreetingService getGreetingService() {
 		return greetingService;
+	}
+
+	public GreetingService getGreetingService2() {
+		return greetingService2;
 	}
 
 	public UriInfo getUriInfo() {
