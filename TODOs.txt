@@ -23,7 +23,7 @@ Project TODOS:
    x implementation of GreetingService which persists to MongoDB
    
 * hello.job
-   - Bundle mit Job für verteiles Processing
+   x Bundle mit Job für verteiles Processing
    
 * hello.feature
    - grouping unit of deployment, i.e. groups all bundles together
