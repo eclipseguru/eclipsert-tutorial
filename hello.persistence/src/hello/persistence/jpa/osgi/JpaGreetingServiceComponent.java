@@ -9,9 +9,9 @@
  * Contributors:
  *     Gunnar Wagenknecht - initial API and implementation
  */
-package hello.persistence.osgi;
+package hello.persistence.jpa.osgi;
 
-import hello.persistence.JpaGreetingServiceImpl;
+import hello.persistence.jpa.JpaGreetingServiceImpl;
 import hello.service.GreetingService;
 
 import java.util.Collection;

@@ -9,7 +9,7 @@
  * Contributors:
  *     Gunnar Wagenknecht - initial API and implementation
  */
-package hello.persistence;
+package hello.persistence.jpa;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
