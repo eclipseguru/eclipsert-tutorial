@@ -189,7 +189,9 @@ public class GreetingServiceImpl implements GreetingService {
 			LOG.trace("Processing greetings...");
 		}
 
-		while (true) {
+		// each call processed at most 3 greetings
+		// (to have a better demo)
+		for (int i = 0; i < 3; i++) {
 			final Greeting greeting = nextUnprocessed();
 			if (null == greeting) {
 				break;
