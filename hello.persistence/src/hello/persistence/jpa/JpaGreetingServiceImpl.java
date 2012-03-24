@@ -1,14 +1,3 @@
-/**
- * Copyright (c) 2012 AGETO Service GmbH and others.
- * All rights reserved.
- *
- * This program and the accompanying materials are made available under the terms of the
- * Eclipse Public License v1.0 which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     Gunnar Wagenknecht - initial API and implementation
- */
 package hello.persistence.jpa;
 
 import hello.service.GreetingServiceImpl;
@@ -21,8 +10,8 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.TypedQuery;
 
 /**
- * Extension of {@link GreetingServiceImpl} which stores greetings into a
- * persistent data store.
+ * Extension of {@link GreetingServiceImpl} which stores greetings into MongoDB
+ * using EclipseLink JPA.
  */
 public class JpaGreetingServiceImpl extends GreetingServiceImpl {
 
