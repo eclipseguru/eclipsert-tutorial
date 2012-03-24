@@ -15,6 +15,11 @@ import java.util.Collection;
 
 import org.eclipse.gyrex.cloud.environment.INodeEnvironment;
 
+import org.osgi.service.component.ComponentContext;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * OSGi service component for providing a {@link GreetingService} OSGi service.
  * <p>
@@ -25,7 +30,43 @@ import org.eclipse.gyrex.cloud.environment.INodeEnvironment;
  */
 public class GreetingServiceComponent implements GreetingService {
 
+	private static final Logger LOG = LoggerFactory.getLogger(GreetingServiceComponent.class);
+
 	private GreetingService service;
+
+	/**
+	 * Called by the OSGi DS runtime when this component is activated.
+	 * <p>
+	 * This requires to set the following in the component definition:
+	 * 
+	 * <pre>
+	 * &lt;scr:component .. <strong>activate="activate"</strong> ..&gt;
+	 * </pre>
+	 * 
+	 * </p>
+	 * 
+	 * @param context
+	 */
+	public void activate(final ComponentContext context) {
+		LOG.info("Activating GreetingServiceComponent.");
+	}
+
+	/**
+	 * Called by the OSGi DS runtime when this component is de-activated.
+	 * <p>
+	 * This requires to set the following in the component definition:
+	 * 
+	 * <pre>
+	 * &lt;scr:component .. <strong>deactivate="deactivate"</strong> ..&gt;
+	 * </pre>
+	 * 
+	 * </p>
+	 * 
+	 * @param context
+	 */
+	public void deactivate(final ComponentContext context) {
+		LOG.info("Deactivating GreetingServiceComponent.");
+	}
 
 	@Override
 	public Collection<String> getGreetings() throws Exception {
