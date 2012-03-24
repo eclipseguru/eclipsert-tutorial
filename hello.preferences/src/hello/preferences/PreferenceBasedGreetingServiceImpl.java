@@ -1,4 +1,4 @@
-package hello.persistence.cloud;
+package hello.preferences;
 
 import hello.service.GreetingServiceImpl;
 
@@ -68,15 +68,15 @@ public class PreferenceBasedGreetingServiceImpl extends GreetingServiceImpl {
 	}
 
 	private Preferences getGreetingsNode() {
-		return CloudScope.INSTANCE.getNode("hello.persistence").node("/greetings");
+		return CloudScope.INSTANCE.getNode("hello.persistence").node("greetings");
 	}
 
 	@Override
 	protected List<Greeting> loadAll() {
 		try {
 			final List<Greeting> greetings = new ArrayList<Greeting>();
-			greetings.addAll(loadAll(NODE_UNPROCESSED));
 			greetings.addAll(loadAll(NODE_PROCESSED));
+			greetings.addAll(loadAll(NODE_UNPROCESSED));
 			return greetings;
 		} catch (final BackingStoreException e) {
 			throw new RuntimeException("Error loading greetings!", e);
@@ -97,10 +97,10 @@ public class PreferenceBasedGreetingServiceImpl extends GreetingServiceImpl {
 		// sort
 		Arrays.sort(childrenNames);
 
-		// generate greetings (but start with latest)
+		// generate greetings
 		final List<Greeting> greetings = new ArrayList<Greeting>(childrenNames.length);
-		for (int i = childrenNames.length - 1; i >= 0; i--) {
-			final Preferences node = greetingsNode.node(childrenNames[i]);
+		for (final String childrenName : childrenNames) {
+			final Preferences node = greetingsNode.node(childrenName);
 			final Greeting greeting = loadGreeting(node);
 			greetings.add(greeting);
 		}
@@ -123,16 +123,25 @@ public class PreferenceBasedGreetingServiceImpl extends GreetingServiceImpl {
 			}
 
 			final Preferences greetingsNode = getGreetingsNode().node(NODE_UNPROCESSED);
+
+			// sync with backend
+			greetingsNode.sync();
+
+			// get first child
 			final String[] childrenNames = greetingsNode.childrenNames();
 			if (childrenNames.length == 0) {
 				return null;
 			}
+			Arrays.sort(childrenNames);
 
 			final Preferences node = greetingsNode.node(childrenNames[0]);
 			final Greeting greeting = loadGreeting(node);
 			node.removeNode();
 			greetingsNode.flush();
 			return greeting;
+		} catch (final IllegalStateException e) {
+			// someone else was faster (node already removed)
+			return null;
 		} catch (final ModificationConflictException e) {
 			// someone else was faster
 			return null;

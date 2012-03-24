@@ -1,4 +1,4 @@
-package hello.persistence.jpa;
+package hello.jpa;
 
 import hello.service.GreetingServiceImpl;
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" activate="activate" deactivate="deactivate" name="hello.persistence.jpa.component">
-   <implementation class="hello.persistence.jpa.osgi.JpaGreetingServiceComponent"/>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" activate="activate" deactivate="deactivate" name="hello.jpa.component">
+   <implementation class="hello.jpa.osgi.JpaGreetingServiceComponent"/>
    <property name="service.vendor" type="String" value="EclipseCon 2012 - EclipseRT Tutorial"/>
    <property name="service.description" type="String" value="GreetingService implementation which uses JPA to persist Greetings"/>
    <property name="service.ranking" type="Integer" value="1000"/>

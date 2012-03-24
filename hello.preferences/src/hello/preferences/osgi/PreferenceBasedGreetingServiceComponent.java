@@ -1,6 +1,6 @@
-package hello.persistence.cloud.osgi;
+package hello.preferences.osgi;
 
-import hello.persistence.cloud.PreferenceBasedGreetingServiceImpl;
+import hello.preferences.PreferenceBasedGreetingServiceImpl;
 import hello.service.GreetingService;
 
 import java.util.Collection;

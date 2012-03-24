@@ -1,6 +1,6 @@
-package hello.persistence.jpa.osgi;
+package hello.jpa.osgi;
 
-import hello.persistence.jpa.JpaGreetingServiceImpl;
+import hello.jpa.JpaGreetingServiceImpl;
 import hello.service.GreetingService;
 
 import java.util.Collection;
