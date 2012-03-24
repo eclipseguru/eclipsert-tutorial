@@ -21,6 +21,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.time.DateFormatUtils;
+import org.apache.commons.lang.time.DateUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -50,6 +51,13 @@ public class GreetingServiceImpl implements GreetingService {
 		 */
 		public long getCreated() {
 			return created;
+		}
+
+		private String getFormattedDate(final long timestamp) {
+			if (DateUtils.isSameDay(new Date(), new Date(timestamp))) {
+				return DateFormatUtils.ISO_TIME_NO_T_TIME_ZONE_FORMAT.format(timestamp);
+			}
+			return DateFormatUtils.SMTP_DATETIME_FORMAT.format(timestamp);
 		}
 
 		/**
@@ -100,7 +108,7 @@ public class GreetingServiceImpl implements GreetingService {
 			greeting.append(" (");
 			greeting.append("submitted by ").append(submittedBy);
 			if (processedOn > 0) {
-				greeting.append(", processed on ").append(DateFormatUtils.SMTP_DATETIME_FORMAT.format(processedOn));
+				greeting.append(", processed on ").append(getFormattedDate(processedOn));
 				greeting.append(", by ").append(processedBy);
 			}
 			greeting.append(")");
