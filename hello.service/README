@@ -1,0 +1,48 @@
+Hello Service
+=============
+
+The purpose of this sample is to develop an OSGi service. The
+service will allow consumers to "greet". A simple implementation
+will also be provided that stores "greetings" in memory.
+
+The GreetingService will be made available to the OSGi framework by
+using OSGi Declarative Services (DS). In order to make that happen
+an OSGi DS component must be created. A well recommended pattern
+is to let the component class itself re-implement the interface of
+the provided service. Internally it keeps a reference of the real
+implementation and just delegates to it.
+
+
+Exercise:
+---------
+
+* Create folder 'OSGI-INF'
+* Create new OSGi DS component in folder 'OSGI-INF'
+  (File -> New -> Plug-in Development -> Component Definition)
+
+               File: OSGI-INF/greetings-service.xml
+               Name: hello.service.component
+              Class: hello.service.GreetingServiceComponent
+           Activate: activate
+         Deactivate: deactivate
+   Provided Service: hello.service.GreetingService
+
+  Please carefully watch the XML source of the component. The PDE DS
+  editor is not bug free.
+
+* Create class 'hello.service.GreetingServiceComponent'
+
+	Implements: hello.service.GreetingService
+	   Methods: all from GreetingService + activate/deactivate
+
+  Hint: Print something to System.out in activate/deactive in order to
+        watch the component life-cycle.
+
+* Launch the server and issue a few OSGi console commands to inspect the
+  state of your component.
+    - "ss hello" - prints bundle state and bundle id of all "hello" bundles
+    - "ls" - prints available components
+    - "start" or "stop" (add bundle id of hello.service bundle)
+
+* Please use the samples view to compare your code with the
+  complete version at any point if you are stuck or in trouble.
