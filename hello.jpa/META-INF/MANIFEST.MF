@@ -15,4 +15,3 @@ Import-Package: hello.service;version="[1.0.0,2.0.0)",
  org.osgi.service.jpa;version="[1.0.0,2.0.0)"
 Export-Package: hello.jpa;version="1.0.0"
 Service-Component: OSGI-INF/jpa-greeting-service.xml
-Bundle-ActivationPolicy: lazy
