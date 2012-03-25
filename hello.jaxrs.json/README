@@ -1,0 +1,13 @@
+Hello JAX-RS JSON
+=================
+
+This is another example of JAX-RS in OSGi. This time we combine it with
+EclipseLink MOXy for generating JSON out of domain objects. The domain
+objects can be annotated with plain JAXB annotations to control the
+generated output.
+
+In practise, it's also possible to directly annotate your JPA entities
+with JAXP annotations and use them as the output of a resource. However,
+this only makes sence if the JPA entities make up a good public API.
+Remember, the HTTP JSON API is typically a public API and should follow
+API evolution guidelines which dicuss things like backwards compatibility.
