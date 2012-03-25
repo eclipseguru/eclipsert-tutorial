@@ -24,7 +24,7 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.exception.ExceptionUtils;
 
 /**
- * Hello World JAX-RS Resource
+ * Hello World JAX-RS Resource.
  */
 @Path("/greetings")
 public class GreetingsResource {
