@@ -17,5 +17,22 @@
 <unit id="org.eclipse.gyrex.features.sdk.feature.group" version="1.0.0.v20120121-2101-69B-F8nUZBL3mRug1Vgh6E_WQH0Q"/>
 <repository location="http://download.eclipse.org/gyrex/1.0/milestones/S-1.0RC3-201203241806/"/>
 </location>
+<location includeAllPlatforms="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.jetty.bundles.f.feature.group" version="8.1.0"/>
+<unit id="org.eclipse.jetty.bundles.f.source.feature.group" version="8.1.0"/>
+<repository location="http://download.eclipse.org/jetty/updates/jetty-bundles-8.x/8.1.2.v20120308/"/>
+</location>
+<location includeAllPlatforms="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.equinox.sdk.feature.group" version="3.8.0.v20111010-1614-7M7fA78g5_qIFGHtFtPYx6PnQurk"/>
+<repository location="http://download.eclipse.org/eclipse/updates/3.8milestones/"/>
+</location>
+<location includeAllPlatforms="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.persistence.sdk.feature.group" version="2.4.0.v20120319-r11014"/>
+<unit id="javax.persistence" version="2.0.4.v201112161009"/>
+<unit id="javax.persistence.source" version="2.0.4.v201112161009"/>
+<unit id="org.eclipse.persistence.nosql" version="2.4.0.v20120319-r11014"/>
+<unit id="org.eclipse.persistence.nosql.source" version="2.4.0.v20120319-r11014"/>
+<repository location="http://download.eclipse.org/rt/eclipselink/milestone-updates/2.4.0.v20120319-r11014_M16/"/>
+</location>
 </locations>
 </target>
