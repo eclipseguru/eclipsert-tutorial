@@ -30,3 +30,31 @@ which it passed to the ProcessGreetingJobs.
 The ProcessGreetingsJob just calls GreetingService#process which does
 some processing on the greeting data.
 
+
+Exercise:
+---------
+
+* Create new OSGi DS component in folder 'OSGI-INF'
+  (File -> New -> Plug-in Development -> Component Definition)
+
+               File: OSGI-INF/greeting-job.xml
+               Name: hello.job.component
+              Class: hello.job.HelloJobProviderComponent
+   Provided Service: org.eclipse.gyrex.jobs.provider.JobProvider
+         Dependency: hello.service.GreetingService (via setter)
+
+  Please carefully watch the XML source of the component. The PDE DS
+  editor is not bug free.
+
+* Create class 'hello.job.HelloJobProviderComponent'
+
+	 Extends: org.eclipse.gyrex.jobs.provider.JobProvider
+	 Methods: all from JobProvider + setter for GreetingService
+
+* Implement run method in ProcessGreetingsJob
+
+* At this point you may launch the server and use the OSGi console
+  to inspect the component state.
+
+* Please use the samples view to compare your code with the
+  complete version at any point if you are stuck or in trouble.

@@ -1,8 +1,8 @@
 /*******************************************************************************
  * Copyright (c) 2012 AGETO Service GmbH and others.
  * All rights reserved.
- *  
- * This program and the accompanying materials are made available under the 
+ *
+ * This program and the accompanying materials are made available under the
  * terms of the Eclipse Distribution License v1.0 which accompanies this distribution,
  * and is available at https://www.eclipse.org/org/documents/edl-v10.html.
  *
@@ -18,7 +18,6 @@
 package hello.job;
 
 import hello.service.GreetingService;
-import hello.service.GreetingServiceProvider;
 
 import java.util.Collections;
 
@@ -30,10 +29,10 @@ import org.eclipse.core.runtime.jobs.Job;
 /**
  * OSGi service component for providing {@link HelloCloudJob} instances.
  */
-public class HelloJobProviderComponent extends JobProvider implements GreetingServiceProvider {
+public class HelloJobProviderComponent extends JobProvider {
 
 	public static final String ID = "process.greetings.job";
-	private GreetingService service;
+	private GreetingService greetingService;
 
 	/**
 	 * Creates a new instance.
@@ -45,14 +44,13 @@ public class HelloJobProviderComponent extends JobProvider implements GreetingSe
 	@Override
 	public Job createJob(final String typeId, final IJobContext context) throws Exception {
 		if (ID.equals(typeId)) {
-			return new ProcessGreetingsJob(getService(), context);
+			return new ProcessGreetingsJob(getGreetingService(), context);
 		}
 		return null;
 	}
 
-	@Override
-	public GreetingService getService() {
-		return service;
+	public GreetingService getGreetingService() {
+		return greetingService;
 	}
 
 	/**
@@ -77,6 +75,6 @@ public class HelloJobProviderComponent extends JobProvider implements GreetingSe
 	 *            the service to set
 	 */
 	public void setGreetingService(final GreetingService service) {
-		this.service = service;
+		greetingService = service;
 	}
 }
