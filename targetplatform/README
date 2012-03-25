@@ -1,0 +1,67 @@
+Configuring Eclipse
+===================
+
+When developing Eclipse plug-ins an important concept is a
+"Target Platform". Simply put, it's like a class path for developing
+OSGi bundles using the Eclipse Plug-in Development Environment (PDE).
+
+Target Platforms typically combine bundles and features from multiple
+sources. The recommended source "Software Site" is essentially a p2
+repository which contains bundles, features and binary artifacts
+(eg. launchers).
+
+During this example, we use bundles and plug-ins consumed from
+the following update sites.
+
+Equinox:
+  http://download.eclipse.org/eclipse/updates/3.8milestones/
+
+Jetty:
+  http://download.eclipse.org/jetty/updates/jetty-bundles-8.x/8.1.2.v20120308/
+
+EclipseLink:
+  http://download.eclipse.org/rt/eclipselink/milestone-updates/2.4.0.v20120319-r11014_M16/
+
+Gyrex:
+  http://download.eclipse.org/gyrex/1.0/milestones/S-1.0RC3-201203241806/
+
+Gyrex JAX-RS AddOn:
+  https://github.com/AGETO/gyrex-jaxrs-application (build manually, will be in Gyrex 1.1)
+
+Orbit:
+  http://download.eclipse.org/tools/orbit/downloads/drops/S20120308061416/repository/
+
+
+TIP: Milestone repositories are typically composite repositories which
+contain references to other repositories. Accessing a milestones p2
+repository might be slow because of the many references to all published
+milestones. Instead, access a milestone directly.
+
+TIP: Orbit is a good location to find IP approved 3rd party OSGi bundles.
+It does not contain all bundles but a lot suitable for daily development.
+
+TIP: Just append "/repository" to any Orbit build to access its p2 repository.
+
+TIP: Uncheck "Include required software" to be able to install bundles for
+all environments. This is necessary when building stacks for multiple
+platforms from one single platform.
+
+
+Assembling
+==========
+
+Target Platforms can be shared between team members (and within any SCM)
+by using target definition files. We typically work with two target
+definition files. One is called REMOTE. It contains references to all the
+remote software sites. A second file, called LOCAL, does not contain
+references to remote sites. It resolves all bundles from a location
+within the local file system. The target definitions themselves are kept
+in an Eclipse project. It can be versioned in any SCM and imported into
+Eclipse.
+
+When updating a target definition, the REMOTE target definition is updated
+first. Then it is exported to the file system (overriding any previous
+content). The new local content is then distributed to team members
+(either via SCM or a shared file system). This has the benefit that all
+members in the team can usually work off-line. It also guarantees that
+all members on the team use the same set of dependencies.
