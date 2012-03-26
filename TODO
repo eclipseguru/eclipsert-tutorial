@@ -1,0 +1,13 @@
+DEMO / Ad-Hoc Cloud
+-------------------
+
+* kurze pause vorher
+* Windows als Server oder besser Linux?
+* Wichtig: p2 Installation funktioniert nicht aus der IDE heraus, als Standalone
+* Client to demo "how-to-connect"
+* Demo console administration using SSH connect
+* FOLIE: Cloud-Connet Prozess (Tagging?)
+* FOLIE: Workspace Location erklären und grobe Struktur
+* export
+* unterschied lokal (in lokale DB/ZK und dann gegen server)
+
