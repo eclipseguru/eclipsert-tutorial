@@ -9,13 +9,8 @@ together. That's were features come into play.
 Exercise:
 ---------
 
-* Open feature.xml editor and add the following plug-ins to it
+* Open feature.xml editor and add all the "hello.*" plug-ins to it
   using the "Plug-ins" tab
-
-     hello.*
-     javax.ws.rs
-     com.sun.jersey
-     org.eclipse.gyrex.http.jersey
 
 * Export feature to the local disc using the Export Feature wizard
   (File -> Export... -> Plug-in Development -> Deployable Features)
