@@ -1,8 +1,8 @@
 /*******************************************************************************
  * Copyright (c) 2012 AGETO Service GmbH and others.
  * All rights reserved.
- *  
- * This program and the accompanying materials are made available under the 
+ *
+ * This program and the accompanying materials are made available under the
  * terms of the Eclipse Distribution License v1.0 which accompanies this distribution,
  * and is available at https://www.eclipse.org/org/documents/edl-v10.html.
  *
@@ -65,18 +65,7 @@ public class ProcessGreetingsJob extends Job {
 
 	@Override
 	protected IStatus run(final IProgressMonitor monitor) {
-		try {
-			LOG.info("Job {} started.", getJobContext().getJobId());
-			getGreetingService().processGreetings();
-			LOG.info("Job {} finished.", getJobContext().getJobId());
-			return Status.OK_STATUS;
-		} catch (final IllegalStateException e) {
-			LOG.error("Unable to process greetings. {}", e.getMessage(), e);
-			return new Status(IStatus.CANCEL, "hello.cloud", "Unable to processing greetings. " + e.getMessage(), e);
-		} catch (final Exception e) {
-			LOG.error("Error processing greetings: {}", ExceptionUtils.getRootCauseMessage(e), e);
-			return new Status(IStatus.ERROR, "hello.cloud", "Error processing greetings. " + e.getMessage(), e);
-		}
+		LOG.info("What shall we do? ({})", getJobContext().getJobId());
 	}
 
 }

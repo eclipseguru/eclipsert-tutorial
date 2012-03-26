@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="hello.job.component">
-   <implementation class="hello.job.HelloJobProviderComponent"/>
-   <service>
-      <provide interface="org.eclipse.gyrex.jobs.provider.JobProvider"/>
-   </service>
-   <reference bind="setGreetingService" cardinality="1..1" interface="hello.service.GreetingService" name="GreetingService" policy="static"/>
-</scr:component>
