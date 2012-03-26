@@ -1,0 +1,15 @@
+Hello JPA
+=========
+
+This is an alternate implementation of the GreetingService. It stores
+greetings in MongoDB using EclipseLink JPA.
+
+The "service.ranking" property of the service component is used to give
+this implementation a higher ranking as the default implementation. All
+other components depending on a GreetingService will pick the one
+with the highest service ranking available.
+
+In order to have this working, a MongoDB must be setup locally. Once
+the MongoDB is running, you can start the "hello.jpa" bundle using the
+OSGi console. It is not started automatically intentionally.
+

@@ -1,0 +1,17 @@
+Hello Feature
+=============
+
+The purpose of a feature is to group a set of bundles together. Quite
+often the bundle structure is very granular. Although it is a small
+unit of deployment, you sometimes like to have a set of bundles delivered
+together. That's were features come into play.
+
+Exercise:
+---------
+
+* Open feature.xml editor and add all the "hello.*" plug-ins to it
+  using the "Plug-ins" tab
+
+* Export feature to the local disc using the Export Feature wizard
+  (File -> Export... -> Plug-in Development -> Deployable Features)
+

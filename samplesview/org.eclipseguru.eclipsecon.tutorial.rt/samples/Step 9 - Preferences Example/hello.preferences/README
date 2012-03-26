@@ -1,0 +1,20 @@
+Hello Preferences
+=================
+
+This is an alternate implementation of the GreetingService. It stores
+greetings in ZooKeeper using OSGi/Eclipse preferences. Although in
+reality ZooKeeper is not the right place to store a large number of
+persistent objects (there are more suitable options), it it's a nice
+tool for this demo.
+
+The OSGi/Eclipse preferences API allows to work with different backend
+stores. By default, Equinox provides file-based persistence for
+preferences which can be stored in the configuration area as well as in
+the instance area. Gyrex adds another persistence implementation which
+stores preferences in ZooKeeper. This makes those preferences
+instantly available to all nodes in the cluster.
+
+The "service.ranking" property of the service component is used to give
+this implementation a higher ranking as the default implementation. All
+other components depending on a GreetingService will pick the one
+with the highest service ranking available.

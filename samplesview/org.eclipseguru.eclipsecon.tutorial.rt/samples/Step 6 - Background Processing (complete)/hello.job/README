@@ -1,0 +1,60 @@
+hello.jobs
+==========
+
+This sample show a simple Eclipse Job. Eclipse Jobs are executed
+in the background and allow to perform batch like processing of data.
+
+The usual way of scheduling Eclipse Jobs for execution is programmatically
+by calling one of the Job#schedule methods. This is well suited within
+the Eclipse UI were jobs are typically triggered as part of some user action
+within the UI. In a typical server environment, it must be possible to start
+jobs by operators of a system and/or automated on a regular base.
+
+Cron expressions are very common in specifying when a job should be executed.
+Gyrex adds a Quartz based scheduler component on top of the Eclipse Jobs API
+as well as the ability to execute jobs on arbitrary worker nodes. This
+allows to scale Eclipse Jobs execution across different machines in a
+cluster.
+
+
+Architecture
+------------
+
+A OSGI DS component (HelloJobProviderComponent) is used to provide an
+OSGi JobProvider service. Gyrex uses job providers as factories for
+instantiating jobs on worker nodes.
+
+The HelloJobProviderComponent itself needs an instance of GreetingService
+which it passed to the ProcessGreetingJobs.
+
+The ProcessGreetingsJob just calls GreetingService#process which does
+some processing on the greeting data.
+
+
+Exercise:
+---------
+
+* Create new OSGi DS component in folder 'OSGI-INF'
+  (File -> New -> Plug-in Development -> Component Definition)
+
+               File: OSGI-INF/greeting-job.xml
+               Name: hello.job.component
+              Class: hello.job.HelloJobProviderComponent
+   Provided Service: org.eclipse.gyrex.jobs.provider.JobProvider
+         Dependency: hello.service.GreetingService (via setter)
+
+  Please carefully watch the XML source of the component. The PDE DS
+  editor is not bug free.
+
+* Create class 'hello.job.HelloJobProviderComponent'
+
+	 Extends: org.eclipse.gyrex.jobs.provider.JobProvider
+	 Methods: all from JobProvider + setter for GreetingService
+
+* Implement run method in ProcessGreetingsJob
+
+* At this point you may launch the server and use the OSGi console
+  to inspect the component state.
+
+* Please use the samples view to compare your code with the
+  complete version at any point if you are stuck or in trouble.

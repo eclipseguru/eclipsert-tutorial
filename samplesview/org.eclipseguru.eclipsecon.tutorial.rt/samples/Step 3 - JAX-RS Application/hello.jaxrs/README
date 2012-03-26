@@ -1,0 +1,70 @@
+Hello JAX-RS
+============
+
+The purpose of this sample is to develop a JAX-RS resource which
+is exposed via HTTP using a ready-to-go OSGi JAX-RS HTTP application.
+
+The resource will make use of the GreetingService which is available
+from an earlier exercise. The ready-to-go OSGi JAX-RS HTTP application
+used during this exercise supports vanilla JAX-RS @Context injection
+of OSGi services.
+
+There is no need to register the JAX-RS resources with the JAX-RS HTTP
+application because the JAX-RS application is capable of scanning a
+bundle for all its root resources (classes annotated with @Path).
+However, the JAX-RS HTTP application itself must be registered to make
+the system aware of a bundle contributing a set of JAX-RS resources
+as a single "application". This is done using an OSGi DS component.
+In the case of this example no component class needs be written. A
+ready-to-go component class will be used which is provided by the Gyrex
+Jersey based JAX-RS OSGi integration.
+
+The concept of an HTTP Application is a Gyrex extension to the OSGi
+HttpService. The OSGi HttpService does not allow capsulation of different
+application. It only supports servlets and files. All servlets share the
+same HttpSession. In contrast a HTTP Application supports grouping of a
+set of servlets as a single application. Each application can be configured
+in multiple instances for different consumers (eg. tenants). Instances
+run isolated from each other. More details can be found in the JavaDoc
+and the Gyrex wiki. In case of any questions please don't hesitate to
+ask in the Gyrex forum/newsgroup.
+
+
+Exercise:
+---------
+
+* Create new OSGi DS component in folder 'OSGI-INF'
+  (File -> New -> Plug-in Development -> Component Definition)
+
+               File: OSGI-INF/jaxrs-application.xml
+               Name: hello.jaxrs.application.component
+              Class: org.eclipse.gyrex.http.jaxrs.JaxRsApplicationProviderComponent
+           Activate: activate
+         Deactivate: deactivate
+   Provided Service: org.eclipse.gyrex.http.application.provider.ApplicationProvider
+           Property: "service.description" type="String" value="JAX-RS Application"
+
+  Please carefully watch the XML source of the component. The PDE DS
+  editor is not bug free.
+
+* At this point you may launch the server and use the OSGi console
+  to inspect the component state.
+
+  Tip: Enable tracing on the Tracing tab of the launch configuration for
+       the "org.eclipse.gyrex.http.jersey" bundle to get debug log
+       output during activation and resource discovery.
+
+* Create an application instance and mount it to any URL using either the Gyrex
+  Admin UI or the SSH console
+
+* Create a GreetingsResource class (similar to HelloResource)
+	   @Path: /greetings
+      Member: private field GreetingService annotated with @Context
+
+  Tip: Just implement a simple @GET method to verify that OSGi service
+       injection works. The rest of the GreetingResource may be copied
+       from the completed example to get a nice form which also allows
+       to submit new greetings.
+
+* Please use the samples view to compare your code with the
+  complete version at any point if you are stuck or in trouble.

@@ -1,0 +1,20 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Hello World JAX-RS JSON API Bundle
+Bundle-SymbolicName: hello.jaxrs.json
+Bundle-Version: 1.0.0.qualifier
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: hello.service;version="1.0.0",
+ javax.ws.rs;version="[1.1.0,2.0.0)",
+ javax.ws.rs.core;version="[1.1.0,2.0.0)",
+ javax.ws.rs.ext;version="[1.1.0,2.0.0)",
+ javax.xml.bind,
+ javax.xml.bind.annotation,
+ javax.xml.transform.stream,
+ org.eclipse.gyrex.http.application.provider;version="[1.0.0,2.0.0)",
+ org.eclipse.gyrex.http.jaxrs;version="[1.0.0,2.0.0)",
+ org.eclipse.persistence.jaxb;version="[2.4.0,3.0.0)",
+ org.osgi.framework;version="[1.3.0,2.0.0)"
+Service-Component: OSGI-INF/jaxrs-jsonapi-application.xml
+Bundle-Vendor: EclipseCon 2012 - EclipseRT Tutorial
