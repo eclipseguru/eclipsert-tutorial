@@ -1,0 +1,6 @@
+Hello Console
+=============
+
+This bundle contains a console command for launching processing jobs.
+Once running you can issue "hello" to get a help of available commands.
+It makes use of ARGS4J for parsing the command line.
