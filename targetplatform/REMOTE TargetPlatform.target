@@ -15,7 +15,7 @@
 </location>
 <location includeAllPlatforms="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipse.gyrex.features.sdk.feature.group" version="1.0.0.v20120121-2101-69B-F8nUZBL3mRug1Vgh6E_WQH0Q"/>
-<repository location="http://download.eclipse.org/gyrex/1.0/milestones/S-1.0RC3-201203241806/"/>
+<repository location="http://download.eclipse.org/gyrex/1.0/milestones/S-1.0RC4-201203252307/"/>
 </location>
 <location includeAllPlatforms="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipse.jetty.bundles.f.feature.group" version="8.1.0"/>
