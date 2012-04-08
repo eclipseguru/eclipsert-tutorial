@@ -4,6 +4,5 @@
 <target name="EclipseCon 2012 - EclipseRT Tutorial (all local)" sequenceNumber="1">
 <locations>
 <location path="${project_loc:/targetplatform}/exported" type="Profile"/>
-<location path="${project_loc:/targetplatform}/jaxrs" type="Profile"/>
 </locations>
 </target>

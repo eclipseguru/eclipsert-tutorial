@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde version="3.6"?>
 
-<target name="EclipseCon 2012 - EclipseRT Tutorial (all remote)" sequenceNumber="11">
+<target name="EclipseCon 2012 - EclipseRT Tutorial (all remote)" sequenceNumber="12">
 <locations>
 <location includeAllPlatforms="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
 <unit id="org.objectweb.asm" version="3.3.1.v201105211655"/>
@@ -14,7 +14,7 @@
 <repository location="http://download.eclipse.org/tools/orbit/downloads/drops/S20120308061416/repository/"/>
 </location>
 <location includeAllPlatforms="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.gyrex.features.sdk.feature.group" version="1.0.0.v20120121-2101-69B-F8nUZBL3mRug1Vgh6E_WQH0Q"/>
+<unit id="org.eclipse.gyrex.features.sdk.feature.group" version="1.0.0.v20120121-2101-788s-F8nVZBL3mSrc5Uln8Jcz0r3"/>
 <repository location="http://download.eclipse.org/gyrex/1.0/milestones/S-1.0RC4-201203252307/"/>
 </location>
 <location includeAllPlatforms="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
@@ -33,6 +33,11 @@
 <unit id="org.eclipse.persistence.nosql" version="2.4.0.v20120319-r11014"/>
 <unit id="org.eclipse.persistence.nosql.source" version="2.4.0.v20120319-r11014"/>
 <repository location="http://download.eclipse.org/rt/eclipselink/milestone-updates/2.4.0.v20120319-r11014_M16/"/>
+</location>
+<location includeAllPlatforms="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.gyrex.features.addons.jersey.feature.group" version="1.0.0.201204081327"/>
+<unit id="org.eclipse.gyrex.features.addons.jersey.source.feature.group" version="1.0.0.201204081327"/>
+<repository location="http://ageto.github.com/gyrex-jaxrs-application/"/>
 </location>
 </locations>
 </target>
