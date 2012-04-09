@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde version="3.6"?>
 
-<target name="EclipseCon 2012 - EclipseRT Tutorial (all remote)" sequenceNumber="12">
+<target name="EclipseRT Tutorial (all remote)" sequenceNumber="12">
 <locations>
 <location includeAllPlatforms="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
 <unit id="org.objectweb.asm" version="3.3.1.v201105211655"/>
