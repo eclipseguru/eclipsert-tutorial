@@ -27,9 +27,7 @@ import javax.inject.Inject;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
-import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Context;
@@ -60,9 +58,8 @@ public class GreetingsResource {
 	@Context
 	private UriInfo uriInfo;
 
-	@PUT
-	@Path("{greeting}")
-	public Response addGreeting(@PathParam("greeting") final String greeting) {
+	@POST
+	public Response addGreeting(@FormParam("greeting") final String greeting) {
 		if (StringUtils.isBlank(greeting)) {
 			return Response.seeOther(getUriInfo().getRequestUriBuilder().replaceQuery("errorMissingParameter").build()).build();
 		}
@@ -200,26 +197,5 @@ public class GreetingsResource {
 
 		printFooter(writer);
 		return Response.ok(stringWriter.toString(), MediaType.TEXT_HTML_TYPE).build();
-	}
-
-	@POST
-	public Response submitGreeting(@FormParam("greeting") final String greeting) {
-		if (StringUtils.isBlank(greeting)) {
-			return Response.seeOther(getUriInfo().getRequestUriBuilder().replaceQuery("errorMissingParameter").build()).build();
-		}
-
-		// post to service
-		try {
-			getGreetingService().sayHello(greeting);
-		} catch (final IllegalStateException e) {
-			// no service is available; lets report that properly
-			return Response.status(Status.SERVICE_UNAVAILABLE).entity(e.getMessage()).build();
-		} catch (final Exception e) {
-			// this looks like an issue deeper in some underlying code; we should log this properly
-			return Response.serverError().entity(ExceptionUtils.getRootCauseMessage(e)).build();
-		}
-
-		// redirect and show success message
-		return Response.seeOther(getUriInfo().getRequestUriBuilder().replaceQuery("added").build()).build();
 	}
 }
