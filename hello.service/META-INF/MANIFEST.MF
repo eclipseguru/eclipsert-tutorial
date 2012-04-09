@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Hello World OSGi Greeting Service Bundle
 Bundle-SymbolicName: hello.service
 Bundle-Version: 1.0.0.qualifier
-Bundle-Vendor: EclipseCon 2012 - EclipseRT Tutorial
+Bundle-Vendor: EclipseRT Tutorial
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Import-Package: org.apache.commons.lang;version="[2.4.0,3.0.0)",
  org.apache.commons.lang.time;version="[2.4.0,3.0.0)",

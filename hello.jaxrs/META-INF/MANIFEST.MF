@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Hello World JAX-RS Bundle
 Bundle-SymbolicName: hello.jaxrs
 Bundle-Version: 1.0.0.qualifier
-Bundle-Vendor: EclipseCon 2012 - EclipseRT Tutorial
+Bundle-Vendor: EclipseRT Tutorial
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Service-Component: OSGI-INF/jaxrs-application.xml
 Import-Package: hello.service;version="1.0.0",

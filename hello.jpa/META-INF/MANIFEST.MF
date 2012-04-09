@@ -4,7 +4,7 @@ Bundle-Name: Hello World JPA Bundle
 Bundle-SymbolicName: hello.jpa
 Bundle-Version: 1.0.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Bundle-Vendor: EclipseCon 2012 - EclipseRT Tutorial
+Bundle-Vendor: EclipseRT Tutorial
 Meta-Persistence: META-INF/persistence.xml
 Import-Package: hello.service;version="[1.0.0,2.0.0)",
  javax.persistence;version="[2.0.0,3.0.0)",
