@@ -1,8 +1,8 @@
 /*******************************************************************************
  * Copyright (c) 2012 AGETO Service GmbH and others.
  * All rights reserved.
- *  
- * This program and the accompanying materials are made available under the 
+ *
+ * This program and the accompanying materials are made available under the
  * terms of the Eclipse Distribution License v1.0 which accompanies this distribution,
  * and is available at https://www.eclipse.org/org/documents/edl-v10.html.
  *
@@ -81,7 +81,11 @@ public class GreetingServiceComponent implements GreetingService {
 	}
 
 	public GreetingService getService() {
-		return service;
+		final GreetingService greetingService = service;
+		if (greetingService == null) {
+			throw new IllegalStateException("inactive");
+		}
+		return greetingService;
 	}
 
 	@Override
