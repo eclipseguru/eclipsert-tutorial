@@ -1,8 +1,8 @@
 /*******************************************************************************
  * Copyright (c) 2012 AGETO Service GmbH and others.
  * All rights reserved.
- *  
- * This program and the accompanying materials are made available under the 
+ *
+ * This program and the accompanying materials are made available under the
  * terms of the Eclipse Distribution License v1.0 which accompanies this distribution,
  * and is available at https://www.eclipse.org/org/documents/edl-v10.html.
  *
@@ -27,7 +27,9 @@ import javax.inject.Inject;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Context;
@@ -38,6 +40,7 @@ import javax.ws.rs.core.UriInfo;
 
 import org.apache.commons.lang.StringEscapeUtils;
 import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang.SystemUtils;
 import org.apache.commons.lang.exception.ExceptionUtils;
 
 /**
@@ -57,8 +60,9 @@ public class GreetingsResource {
 	@Context
 	private UriInfo uriInfo;
 
-	@POST
-	public Response addGreeting(@FormParam("greeting") final String greeting) {
+	@PUT
+	@Path("{greeting}")
+	public Response addGreeting(@PathParam("greeting") final String greeting) {
 		if (StringUtils.isBlank(greeting)) {
 			return Response.seeOther(getUriInfo().getRequestUriBuilder().replaceQuery("errorMissingParameter").build()).build();
 		}
@@ -147,6 +151,24 @@ public class GreetingsResource {
 	}
 
 	@GET
+	@Produces(MediaType.TEXT_PLAIN)
+	public Response showGreetings() {
+		// read greetings
+		Collection<String> greetings;
+		try {
+			greetings = getGreetingService().getGreetings();
+		} catch (final IllegalStateException e) {
+			// no service is available; lets report that properly
+			return Response.status(Status.SERVICE_UNAVAILABLE).type(MediaType.TEXT_PLAIN_TYPE).entity(e.getMessage()).build();
+		} catch (final Exception e) {
+			// this looks like an issue deeper in some underlying code; we should log this properly
+			return Response.serverError().type(MediaType.TEXT_PLAIN_TYPE).entity(ExceptionUtils.getFullStackTrace(e)).build();
+		}
+
+		return Response.ok(StringUtils.join(greetings, SystemUtils.LINE_SEPARATOR), MediaType.TEXT_PLAIN).build();
+	}
+
+	@GET
 	@Produces(MediaType.TEXT_HTML)
 	public Response showGreetings(@QueryParam("added") final String added, @QueryParam("errorMissingParameter") final String errorMissingParameter) {
 		// read greetings
@@ -178,5 +200,26 @@ public class GreetingsResource {
 
 		printFooter(writer);
 		return Response.ok(stringWriter.toString(), MediaType.TEXT_HTML_TYPE).build();
+	}
+
+	@POST
+	public Response submitGreeting(@FormParam("greeting") final String greeting) {
+		if (StringUtils.isBlank(greeting)) {
+			return Response.seeOther(getUriInfo().getRequestUriBuilder().replaceQuery("errorMissingParameter").build()).build();
+		}
+
+		// post to service
+		try {
+			getGreetingService().sayHello(greeting);
+		} catch (final IllegalStateException e) {
+			// no service is available; lets report that properly
+			return Response.status(Status.SERVICE_UNAVAILABLE).entity(e.getMessage()).build();
+		} catch (final Exception e) {
+			// this looks like an issue deeper in some underlying code; we should log this properly
+			return Response.serverError().entity(ExceptionUtils.getRootCauseMessage(e)).build();
+		}
+
+		// redirect and show success message
+		return Response.seeOther(getUriInfo().getRequestUriBuilder().replaceQuery("added").build()).build();
 	}
 }
