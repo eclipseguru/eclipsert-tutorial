@@ -6,5 +6,5 @@
    <property name="service.description" type="String" value="A GreetingService component which provides an OSGi service that stores greetings in the memory."/>
    <service>
       <provide interface="hello.service.GreetingService"/>
-   </service>service.GreetingServiceComponent"/>
+   </service>
 </scr:component>
