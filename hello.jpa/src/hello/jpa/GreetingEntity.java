@@ -1,8 +1,8 @@
 /*******************************************************************************
  * Copyright (c) 2012 AGETO Service GmbH and others.
  * All rights reserved.
- *  
- * This program and the accompanying materials are made available under the 
+ *
+ * This program and the accompanying materials are made available under the
  * terms of the Eclipse Distribution License v1.0 which accompanies this distribution,
  * and is available at https://www.eclipse.org/org/documents/edl-v10.html.
  *
@@ -17,12 +17,12 @@
  *******************************************************************************/
 package hello.jpa;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 import org.eclipse.persistence.annotations.DataFormatType;
-import org.eclipse.persistence.annotations.Field;
 import org.eclipse.persistence.annotations.NoSql;
 
 /**
@@ -34,27 +34,27 @@ public class GreetingEntity {
 
 	@Id
 	@GeneratedValue
-	@Field
+	@Column
 	String id;
 
-	@Field
+	@Column
 	private long created;
 
-	@Field
+	@Column
 	private String text;
 
-	@Field
+	@Column
 	private String submittedBy;
 
-	@Field
+	@Column
 	private long processedOn;
 
-	@Field
+	@Column
 	private String processedBy;
 
 	/**
 	 * Returns the created.
-	 * 
+	 *
 	 * @return the created
 	 */
 	public long getCreated() {
@@ -63,7 +63,7 @@ public class GreetingEntity {
 
 	/**
 	 * Returns the id.
-	 * 
+	 *
 	 * @return the id
 	 */
 	public String getId() {
@@ -72,7 +72,7 @@ public class GreetingEntity {
 
 	/**
 	 * Returns the processedBy.
-	 * 
+	 *
 	 * @return the processedBy
 	 */
 	public String getProcessedBy() {
@@ -81,7 +81,7 @@ public class GreetingEntity {
 
 	/**
 	 * Returns the processedOn.
-	 * 
+	 *
 	 * @return the processedOn
 	 */
 	public long getProcessedOn() {
@@ -90,7 +90,7 @@ public class GreetingEntity {
 
 	/**
 	 * Returns the submittedBy.
-	 * 
+	 *
 	 * @return the submittedBy
 	 */
 	public String getSubmittedBy() {
@@ -99,7 +99,7 @@ public class GreetingEntity {
 
 	/**
 	 * Returns the text.
-	 * 
+	 *
 	 * @return the text
 	 */
 	public String getText() {
@@ -108,7 +108,7 @@ public class GreetingEntity {
 
 	/**
 	 * Sets the created.
-	 * 
+	 *
 	 * @param created
 	 *            the created to set
 	 */
@@ -118,7 +118,7 @@ public class GreetingEntity {
 
 	/**
 	 * Sets the id.
-	 * 
+	 *
 	 * @param id
 	 *            the id to set
 	 */
@@ -128,7 +128,7 @@ public class GreetingEntity {
 
 	/**
 	 * Sets the processedBy.
-	 * 
+	 *
 	 * @param processedBy
 	 *            the processedBy to set
 	 */
@@ -138,7 +138,7 @@ public class GreetingEntity {
 
 	/**
 	 * Sets the processedOn.
-	 * 
+	 *
 	 * @param processedOn
 	 *            the processedOn to set
 	 */
@@ -148,7 +148,7 @@ public class GreetingEntity {
 
 	/**
 	 * Sets the submittedBy.
-	 * 
+	 *
 	 * @param submittedBy
 	 *            the submittedBy to set
 	 */
@@ -158,7 +158,7 @@ public class GreetingEntity {
 
 	/**
 	 * Sets the text.
-	 * 
+	 *
 	 * @param text
 	 *            the text to set
 	 */
