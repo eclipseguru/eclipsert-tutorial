@@ -9,12 +9,6 @@
  * Contributors:
  *     Gunnar Wagenknecht - initial API and implementation
  *******************************************************************************/
-/*******************************************************************************
- * This is sample code. Use at your own risk. It comes WITHOUT any warranty.
- * Released to public domain. Please copy & paste as you wish.
- *
- * Initial Contribution: Gunnar Wagenknecht
- *******************************************************************************/
 package hello.jpa;
 
 import javax.persistence.Column;
@@ -54,7 +48,7 @@ public class GreetingEntity {
 
 	/**
 	 * Returns the created.
-	 *
+	 * 
 	 * @return the created
 	 */
 	public long getCreated() {
@@ -63,7 +57,7 @@ public class GreetingEntity {
 
 	/**
 	 * Returns the id.
-	 *
+	 * 
 	 * @return the id
 	 */
 	public String getId() {
@@ -72,7 +66,7 @@ public class GreetingEntity {
 
 	/**
 	 * Returns the processedBy.
-	 *
+	 * 
 	 * @return the processedBy
 	 */
 	public String getProcessedBy() {
@@ -81,7 +75,7 @@ public class GreetingEntity {
 
 	/**
 	 * Returns the processedOn.
-	 *
+	 * 
 	 * @return the processedOn
 	 */
 	public long getProcessedOn() {
@@ -90,7 +84,7 @@ public class GreetingEntity {
 
 	/**
 	 * Returns the submittedBy.
-	 *
+	 * 
 	 * @return the submittedBy
 	 */
 	public String getSubmittedBy() {
@@ -99,7 +93,7 @@ public class GreetingEntity {
 
 	/**
 	 * Returns the text.
-	 *
+	 * 
 	 * @return the text
 	 */
 	public String getText() {
@@ -108,7 +102,7 @@ public class GreetingEntity {
 
 	/**
 	 * Sets the created.
-	 *
+	 * 
 	 * @param created
 	 *            the created to set
 	 */
@@ -118,7 +112,7 @@ public class GreetingEntity {
 
 	/**
 	 * Sets the id.
-	 *
+	 * 
 	 * @param id
 	 *            the id to set
 	 */
@@ -128,7 +122,7 @@ public class GreetingEntity {
 
 	/**
 	 * Sets the processedBy.
-	 *
+	 * 
 	 * @param processedBy
 	 *            the processedBy to set
 	 */
@@ -138,7 +132,7 @@ public class GreetingEntity {
 
 	/**
 	 * Sets the processedOn.
-	 *
+	 * 
 	 * @param processedOn
 	 *            the processedOn to set
 	 */
@@ -148,7 +142,7 @@ public class GreetingEntity {
 
 	/**
 	 * Sets the submittedBy.
-	 *
+	 * 
 	 * @param submittedBy
 	 *            the submittedBy to set
 	 */
@@ -158,7 +152,7 @@ public class GreetingEntity {
 
 	/**
 	 * Sets the text.
-	 *
+	 * 
 	 * @param text
 	 *            the text to set
 	 */

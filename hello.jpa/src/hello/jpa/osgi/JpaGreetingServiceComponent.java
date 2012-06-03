@@ -1,19 +1,13 @@
 /*******************************************************************************
  * Copyright (c) 2012 AGETO Service GmbH and others.
  * All rights reserved.
- *  
- * This program and the accompanying materials are made available under the 
+ *
+ * This program and the accompanying materials are made available under the
  * terms of the Eclipse Distribution License v1.0 which accompanies this distribution,
  * and is available at https://www.eclipse.org/org/documents/edl-v10.html.
  *
  * Contributors:
  *     Gunnar Wagenknecht - initial API and implementation
- *******************************************************************************/
-/*******************************************************************************
- * This is sample code. Use at your own risk. It comes WITHOUT any warranty.
- * Released to public domain. Please copy & paste as you wish.
- *
- * Initial Contribution: Gunnar Wagenknecht
  *******************************************************************************/
 package hello.jpa.osgi;
 
@@ -45,10 +39,17 @@ public class JpaGreetingServiceComponent implements GreetingService {
 		final INodeEnvironment environment = getService(context, INodeEnvironment.class);
 		final EntityManagerFactoryBuilder emfBuilder = getService(context, EntityManagerFactoryBuilder.class);
 
-		final Map<String, Object> props = new HashMap<String, Object>();
+		final Map<String, Object> props = new HashMap<String, Object>(6);
 
 		// disable Gemini JPA/EclipseLink data source handling for NoSQL data source
 		props.put("javax.persistence.nonJtaDataSource", "");
+	    props.put("gemini.jpa.providerConnectedDataSource", Boolean.TRUE);
+
+	    // configure MongoDB connection
+	    props.put("eclipselink.target-database", "org.eclipse.persistence.nosql.adapters.mongo.MongoPlatform");
+	    props.put("eclipselink.nosql.connection-spec", "org.eclipse.persistence.nosql.adapters.mongo.MongoConnectionSpec");
+	    props.put("eclipselink.nosql.property.mongo.host", "localhost");
+	    props.put("eclipselink.nosql.property.mongo.db", "jpamongodb");
 
 		service = new JpaGreetingServiceImpl(environment.getNodeId(), emfBuilder.createEntityManagerFactory(props));
 	}
@@ -71,7 +72,7 @@ public class JpaGreetingServiceComponent implements GreetingService {
 	/**
 	 * Utility method which retrieves a service from the component context using
 	 * its simple name.
-	 * 
+	 *
 	 * @param context
 	 * @param serviceInterface
 	 * @return the service instance
