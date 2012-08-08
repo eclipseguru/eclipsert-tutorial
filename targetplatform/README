@@ -14,22 +14,22 @@ During this example, we use bundles and plug-ins consumed from
 the following update sites.
 
 Equinox:
-  http://download.eclipse.org/eclipse/updates/3.8milestones/
+  http://download.eclipse.org/eclipse/updates/3.8/
 
 Jetty:
-  http://download.eclipse.org/jetty/updates/jetty-bundles-8.x/8.1.2.v20120308/
+  http://download.eclipse.org/jetty/updates/jetty-bundles-8.x/8.1.5.v20120716/
 
 EclipseLink:
-  http://download.eclipse.org/rt/eclipselink/milestone-updates/2.4.0.v20120319-r11014_M16/
+  http://download.eclipse.org/rt/eclipselink/updates/2.4.0.v20120608-r11652/
 
 Gyrex:
-  http://download.eclipse.org/gyrex/1.0/milestones/S-1.0RC4-201203252307/
+  http://download.eclipse.org/gyrex/1.1/
 
 Gyrex JAX-RS AddOn:
-  https://github.com/AGETO/gyrex-jaxrs-application (build manually, will be in Gyrex 1.1)
+  https://github.com/AGETO/gyrex-jaxrs-application (build manually, will be in Gyrex 1.2)
 
 Orbit:
-  http://download.eclipse.org/tools/orbit/downloads/drops/S20120308061416/repository/
+  http://download.eclipse.org/tools/orbit/downloads/drops/R20120526062928/repository/
 
 
 TIP: Milestone repositories are typically composite repositories which
