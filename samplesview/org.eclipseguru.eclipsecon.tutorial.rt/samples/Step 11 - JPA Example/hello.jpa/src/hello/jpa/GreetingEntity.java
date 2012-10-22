@@ -1,29 +1,23 @@
 /*******************************************************************************
  * Copyright (c) 2012 AGETO Service GmbH and others.
  * All rights reserved.
- *  
- * This program and the accompanying materials are made available under the 
+ *
+ * This program and the accompanying materials are made available under the
  * terms of the Eclipse Distribution License v1.0 which accompanies this distribution,
  * and is available at https://www.eclipse.org/org/documents/edl-v10.html.
  *
  * Contributors:
  *     Gunnar Wagenknecht - initial API and implementation
  *******************************************************************************/
-/*******************************************************************************
- * This is sample code. Use at your own risk. It comes WITHOUT any warranty.
- * Released to public domain. Please copy & paste as you wish.
- *
- * Initial Contribution: Gunnar Wagenknecht
- *******************************************************************************/
 package hello.jpa;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-import org.eclipse.persistence.annotations.DataFormatType;
-import org.eclipse.persistence.annotations.Field;
-import org.eclipse.persistence.annotations.NoSql;
+import org.eclipse.persistence.nosql.annotations.DataFormatType;
+import org.eclipse.persistence.nosql.annotations.NoSql;
 
 /**
  * Sample entity with JPA + NoSQL annotations.
@@ -34,22 +28,22 @@ public class GreetingEntity {
 
 	@Id
 	@GeneratedValue
-	@Field
+	@Column
 	String id;
 
-	@Field
+	@Column
 	private long created;
 
-	@Field
+	@Column
 	private String text;
 
-	@Field
+	@Column
 	private String submittedBy;
 
-	@Field
+	@Column
 	private long processedOn;
 
-	@Field
+	@Column
 	private String processedBy;
 
 	/**

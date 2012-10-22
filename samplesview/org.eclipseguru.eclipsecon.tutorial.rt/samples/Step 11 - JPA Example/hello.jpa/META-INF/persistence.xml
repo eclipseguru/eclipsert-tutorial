@@ -3,11 +3,17 @@
   <persistence-unit name="hello.persistence" transaction-type="RESOURCE_LOCAL">
     <class>hello.jpa.GreetingEntity</class>
     <properties>
-      <property name="eclipselink.target-database" value="org.eclipse.persistence.nosql.adapters.mongo.MongoPlatform" />
-      <property name="eclipselink.nosql.connection-spec" value="org.eclipse.persistence.nosql.adapters.mongo.MongoConnectionSpec" />
-      <property name="eclipselink.nosql.property.mongo.host" value="localhost" />
-      <property name="eclipselink.nosql.property.mongo.db" value="jpamongodb" />
-      <property name="eclipselink.logging.level" value="FINE" />
+      <property name="eclipselink.target-database" value="org.eclipse.persistence.nosql.adapters.mongo.MongoPlatform"/>
+      <property name="eclipselink.nosql.connection-spec" value="org.eclipse.persistence.nosql.adapters.mongo.MongoConnectionSpec"/>
+      <property name="eclipselink.nosql.property.mongo.port" value="27017"/>
+      <property name="eclipselink.nosql.property.mongo.host" value="localhost"/>
+      <property name="eclipselink.nosql.property.mongo.db" value="eclipsert"/>
+      <property name="eclipselink.logging.level" value="FINEST"/>
+      <property name="eclipselink.logging.timestamp" value="false"/>
+      <property name="eclipselink.logging.thread" value="false"/>
+      <property name="eclipselink.logging.session" value="false"/>
+      <property name="eclipselink.logging.exceptions" value="false"/>
+      <property name="eclipselink.logging.connection" value="false"/>
     </properties>
   </persistence-unit>
 </persistence>

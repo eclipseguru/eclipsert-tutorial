@@ -7,7 +7,7 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Require-Bundle: org.eclipse.gyrex.common;bundle-version="1.0.0",
  org.eclipse.gyrex.jobs;bundle-version="1.0.0",
  org.eclipse.core.jobs;bundle-version="3.5.200"
-Bundle-Vendor: EclipseCon 2012 - EclipseRT Tutorial
+Bundle-Vendor: EclipseRT Tutorial
 Bundle-ActivationPolicy: lazy
 Service-Component: OSGI-INF/greeting-job.xml
 Import-Package: hello.service;version="1.0.0",

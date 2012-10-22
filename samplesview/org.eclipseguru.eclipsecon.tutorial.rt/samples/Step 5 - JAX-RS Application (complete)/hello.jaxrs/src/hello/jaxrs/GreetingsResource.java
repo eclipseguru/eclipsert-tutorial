@@ -1,8 +1,8 @@
 /*******************************************************************************
  * Copyright (c) 2012 AGETO Service GmbH and others.
  * All rights reserved.
- *  
- * This program and the accompanying materials are made available under the 
+ *
+ * This program and the accompanying materials are made available under the
  * terms of the Eclipse Distribution License v1.0 which accompanies this distribution,
  * and is available at https://www.eclipse.org/org/documents/edl-v10.html.
  *
@@ -38,6 +38,7 @@ import javax.ws.rs.core.UriInfo;
 
 import org.apache.commons.lang.StringEscapeUtils;
 import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang.SystemUtils;
 import org.apache.commons.lang.exception.ExceptionUtils;
 
 /**
@@ -144,6 +145,24 @@ public class GreetingsResource {
 		writer.println("</head>");
 		writer.println("<body>");
 		writer.println("<h1>Welcome!</h1>");
+	}
+
+	@GET
+	@Produces(MediaType.TEXT_PLAIN)
+	public Response showGreetings() {
+		// read greetings
+		Collection<String> greetings;
+		try {
+			greetings = getGreetingService().getGreetings();
+		} catch (final IllegalStateException e) {
+			// no service is available; lets report that properly
+			return Response.status(Status.SERVICE_UNAVAILABLE).type(MediaType.TEXT_PLAIN_TYPE).entity(e.getMessage()).build();
+		} catch (final Exception e) {
+			// this looks like an issue deeper in some underlying code; we should log this properly
+			return Response.serverError().type(MediaType.TEXT_PLAIN_TYPE).entity(ExceptionUtils.getFullStackTrace(e)).build();
+		}
+
+		return Response.ok(StringUtils.join(greetings, SystemUtils.LINE_SEPARATOR), MediaType.TEXT_PLAIN).build();
 	}
 
 	@GET

@@ -9,14 +9,8 @@
 # Contributors:
 #     Gunnar Wagenknecht - initial API and implementation
 ###############################################################################
-###############################################################################
-# This is sample code. Use at your own risk. It comes WITHOUT any warranty.
-# Released to public domain. Please copy & paste as you wish.
-#
-# Initial Contribution: Gunnar Wagenknecht
-###############################################################################
-source.. = src/
 output.. = bin/
 bin.includes = META-INF/,\
                .,\
                OSGI-INF/
+source.. = src/
