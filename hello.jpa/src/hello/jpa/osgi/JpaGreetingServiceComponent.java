@@ -42,14 +42,13 @@ public class JpaGreetingServiceComponent implements GreetingService {
 		final Map<String, Object> props = new HashMap<String, Object>(6);
 
 		// disable Gemini JPA/EclipseLink data source handling for NoSQL data source
-		props.put("javax.persistence.nonJtaDataSource", "");
 	    props.put("gemini.jpa.providerConnectedDataSource", Boolean.TRUE);
 
 	    // configure MongoDB connection
 	    props.put("eclipselink.target-database", "org.eclipse.persistence.nosql.adapters.mongo.MongoPlatform");
 	    props.put("eclipselink.nosql.connection-spec", "org.eclipse.persistence.nosql.adapters.mongo.MongoConnectionSpec");
 	    props.put("eclipselink.nosql.property.mongo.host", "localhost");
-	    props.put("eclipselink.nosql.property.mongo.db", "jpamongodb");
+	    props.put("eclipselink.nosql.property.mongo.db", "eclipsert");
 
 		service = new JpaGreetingServiceImpl(environment.getNodeId(), emfBuilder.createEntityManagerFactory(props));
 	}
