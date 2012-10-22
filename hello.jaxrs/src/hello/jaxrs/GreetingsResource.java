@@ -9,6 +9,12 @@
  * Contributors:
  *     Gunnar Wagenknecht - initial API and implementation
  *******************************************************************************/
+/*******************************************************************************
+ * This is sample code. Use at your own risk. It comes WITHOUT any warranty.
+ * Released to public domain. Please copy & paste as you wish.
+ *
+ * Initial Contribution: Gunnar Wagenknecht
+ *******************************************************************************/
 package hello.jaxrs;
 
 import hello.service.GreetingService;
