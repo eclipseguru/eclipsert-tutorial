@@ -1,0 +1,4 @@
+fileToOpen=hello.job/README
+1=targetplatform
+3=hello.service
+5=hello.jaxrs
