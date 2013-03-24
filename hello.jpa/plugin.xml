@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.gyrex.server.roles">
+      <role
+            id="hello.jpa.role"
+            name="JPA Greeting Service Default Start Bundles">
+         <requireBundle
+               symbolicName="org.eclipse.gemini.jpa">
+         </requireBundle>
+         <requireBundle
+               symbolicName="hello.jpa">
+         </requireBundle>
+      </role>
+      <defaultStart
+            mode="any"
+            roleId="hello.jpa.role"
+            trigger="onBoot">
+      </defaultStart>
+   </extension>
+
+</plugin>

@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Hello World JPA Bundle
-Bundle-SymbolicName: hello.jpa
+Bundle-SymbolicName: hello.jpa;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-Vendor: EclipseRT Tutorial

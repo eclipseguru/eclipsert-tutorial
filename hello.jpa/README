@@ -9,7 +9,28 @@ this implementation a higher ranking as the default implementation. All
 other components depending on a GreetingService will pick the one
 with the highest service ranking available.
 
-In order to have this working, a MongoDB must be setup locally. Once
-the MongoDB is running, you can start the "hello.jpa" bundle using the
-OSGi console. It is not started automatically intentionally.
+In order to have this working, a MongoDB must be setup locally.
 
+The JPA support in OSGi is based on Gemini JPA. In order to activate
+it, the Gemini JPA bundle must be started. It does not start automatically.
+Additionally, start order is important to simplify the start experience.
+Gemini JPA uses byte-code weaving in order to enhance the JPA classes
+at runtime. Therefore, the Gemini JPA bundle should be started before
+the "hello.jpa" bundle.
+
+Using the OSGi console you can start the bundles manually:
+
+  1. org.eclipse.gemini.jpa
+  2. hello.jpa
+
+Until the Gemini JPA bundle is started, the "hello.jpa.component" DS
+component will be unsatisfied because it depends on the EntityManagerFactoryBuilder
+service provided by Gemini JPA.
+
+
+Automatic-Start in Gyrex
+------------------------
+
+With the help of Gyrex it's possible to avoid the manual start by simply
+defining an Eclipse extension for automated start of bundles. Please
+have a look at the plugin.xml next to this README to see how its implemented.
